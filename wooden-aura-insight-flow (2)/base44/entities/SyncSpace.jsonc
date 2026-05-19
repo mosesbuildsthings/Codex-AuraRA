@@ -1,0 +1,37 @@
+{
+  "name": "SyncSpace",
+  "type": "object",
+  "properties": {
+    "user_email": {
+      "type": "string",
+      "description": "Primary user email"
+    },
+    "partner_email": {
+      "type": "string",
+      "description": "Partner email"
+    },
+    "name": {
+      "type": "string",
+      "description": "Space name (e.g., 'Our Journey')"
+    },
+    "created_date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether the sync space is active"
+    },
+    "description": {
+      "type": "string",
+      "description": "Optional description for this sync space",
+      "maxLength": 1000
+    }
+  },
+  "required": [
+    "user_email",
+    "partner_email",
+    "name"
+  ]
+}

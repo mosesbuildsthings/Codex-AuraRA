@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-body: 'Inter', system-ui, sans-serif;
+    --font-heading: 'Inter', system-ui, sans-serif;
+
+    /* Brand palette from AuraApp Media Kit */
+    --background: 0 0% 97%;           /* #F3F4F6 light gray */
+    --foreground: 222 47% 17%;        /* #1F2937 dark gray */
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 17%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 17%;
+
+    /* Primary Purple #8B5CF6 → hsl(262, 88%, 67%) */
+    --primary: 262 88% 67%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary / muted surfaces */
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 222 47% 17%;
+    --muted: 220 13% 94%;
+    --muted-foreground: 220 9% 46%;   /* #6B7280 medium gray */
+
+    /* Accent: Primary Blue #3B82F6 → hsl(217, 91%, 60%) */
+    --accent: 217 91% 93%;
+    --accent-foreground: 217 91% 40%;
+
+    --destructive: 0 72% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 88%;
+    --input: 220 13% 88%;
+    --ring: 262 88% 67%;
+
+    /* Charts using brand palette */
+    --chart-1: 262 88% 67%;   /* primary purple */
+    --chart-2: 161 76% 40%;   /* success green #10B981 */
+    --chart-3: 38 92% 50%;    /* warning orange #F59E0B */
+    --chart-4: 217 91% 60%;   /* primary blue #3B82F6 */
+    --chart-5: 199 89% 48%;   /* sky blue #0EA5E9 */
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 222 47% 17%;
+    --sidebar-primary: 262 88% 67%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 217 91% 93%;
+    --sidebar-accent-foreground: 217 91% 40%;
+    --sidebar-border: 220 13% 88%;
+    --sidebar-ring: 262 88% 67%;
+
+    --safe-area-inset-top: env(safe-area-inset-top, 0);
+    --safe-area-inset-bottom: env(safe-area-inset-bottom, 0);
+    --safe-area-inset-left: env(safe-area-inset-left, 0);
+    --safe-area-inset-right: env(safe-area-inset-right, 0);
+  }
+
+  .dark {
+    --background: 222 47% 8%;
+    --foreground: 220 14% 93%;
+    --card: 222 47% 12%;
+    --card-foreground: 220 14% 93%;
+    --popover: 222 47% 12%;
+    --popover-foreground: 220 14% 93%;
+    --primary: 262 88% 72%;
+    --primary-foreground: 222 47% 8%;
+    --secondary: 222 47% 16%;
+    --secondary-foreground: 220 14% 85%;
+    --muted: 222 47% 16%;
+    --muted-foreground: 220 9% 55%;
+    --accent: 217 91% 20%;
+    --accent-foreground: 217 91% 75%;
+    --destructive: 0 62% 45%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 222 47% 18%;
+    --input: 222 47% 18%;
+    --ring: 262 88% 72%;
+    --chart-1: 262 88% 72%;
+    --chart-2: 161 76% 50%;
+    --chart-3: 38 92% 55%;
+    --chart-4: 217 91% 65%;
+    --chart-5: 199 89% 55%;
+    --sidebar-background: 222 47% 8%;
+    --sidebar-foreground: 220 14% 93%;
+    --sidebar-primary: 262 88% 72%;
+    --sidebar-primary-foreground: 222 47% 8%;
+    --sidebar-accent: 217 91% 20%;
+    --sidebar-accent-foreground: 217 91% 75%;
+    --sidebar-border: 222 47% 18%;
+    --sidebar-ring: 262 88% 72%;
+    --safe-area-inset-left: env(safe-area-inset-left, 0);
+    --safe-area-inset-right: env(safe-area-inset-right, 0);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html, body {
+    @apply overscroll-none;
+    overscroll-behavior: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body;
+  }
+
+  /* Safe area utilities */
+  .pt-safe { padding-top: var(--safe-area-inset-top); }
+  .pb-safe { padding-bottom: var(--safe-area-inset-bottom); }
+  .pl-safe { padding-left: var(--safe-area-inset-left); }
+  .pr-safe { padding-right: var(--safe-area-inset-right); }
+  .px-safe {
+    padding-left: var(--safe-area-inset-left);
+    padding-right: var(--safe-area-inset-right);
+  }
+  .pxy-safe {
+    padding-top: var(--safe-area-inset-top);
+    padding-bottom: var(--safe-area-inset-bottom);
+    padding-left: var(--safe-area-inset-left);
+    padding-right: var(--safe-area-inset-right);
+  }
+
+  button, a, nav, [role="button"], [role="menuitem"], [role="tab"] {
+    user-select: none;
+  }
+}

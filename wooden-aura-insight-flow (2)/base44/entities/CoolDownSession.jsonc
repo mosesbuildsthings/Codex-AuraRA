@@ -1,0 +1,74 @@
+{
+  "name": "CoolDownSession",
+  "type": "object",
+  "properties": {
+    "disagreement": {
+      "type": "string",
+      "description": "Description of the disagreement or conflict"
+    },
+    "initial_feeling": {
+      "type": "string",
+      "enum": [
+        "frustrated",
+        "hurt",
+        "angry",
+        "disappointed",
+        "confused",
+        "anxious",
+        "overwhelmed"
+      ],
+      "description": "Initial emotional state"
+    },
+    "intensity": {
+      "type": "number",
+      "minimum": 1,
+      "maximum": 10,
+      "description": "Intensity of feelings (1-10)"
+    },
+    "current_step": {
+      "type": "number",
+      "default": 0,
+      "description": "Current step in de-escalation process (0-5)"
+    },
+    "observations": {
+      "type": "string",
+      "description": "Objective observations without judgment"
+    },
+    "feelings": {
+      "type": "string",
+      "description": "Identified core feelings"
+    },
+    "needs": {
+      "type": "string",
+      "description": "Underlying needs and values"
+    },
+    "requests": {
+      "type": "string",
+      "description": "Specific requests or actions"
+    },
+    "reflection": {
+      "type": "string",
+      "description": "User's reflection after de-escalation"
+    },
+    "completed": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether the session was completed"
+    },
+    "completed_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the session was completed"
+    },
+    "description": {
+      "type": "string",
+      "description": "Optional additional description for this cool down session",
+      "maxLength": 1000
+    }
+  },
+  "required": [
+    "disagreement",
+    "initial_feeling",
+    "intensity"
+  ]
+}

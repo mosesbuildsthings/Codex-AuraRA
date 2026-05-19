@@ -1,0 +1,47 @@
+{
+  "name": "WisdomEntry",
+  "type": "object",
+  "properties": {
+    "case_id": {
+      "type": "string",
+      "description": "Source AnalysisCase"
+    },
+    "report_id": {
+      "type": "string",
+      "description": "Source Report"
+    },
+    "content": {
+      "type": "string",
+      "description": "The extracted advice or insight text"
+    },
+    "topic": {
+      "type": "string",
+      "enum": [
+        "attachment_styles",
+        "conflict_resolution",
+        "communication",
+        "boundaries",
+        "trust",
+        "intimacy",
+        "self_awareness",
+        "co_parenting",
+        "other"
+      ],
+      "default": "other"
+    },
+    "title": {
+      "type": "string",
+      "description": "Short heading for this wisdom entry"
+    },
+    "saved": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether the user has bookmarked this"
+    }
+  },
+  "required": [
+    "content",
+    "topic",
+    "title"
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "name": "Challenge",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Challenge title"
+    },
+    "description": {
+      "type": "string",
+      "description": "Challenge description"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "communication",
+        "adventure",
+        "intimacy",
+        "wellness",
+        "creativity",
+        "fun"
+      ],
+      "default": "fun",
+      "description": "Challenge category"
+    },
+    "difficulty": {
+      "type": "string",
+      "enum": [
+        "easy",
+        "medium",
+        "hard"
+      ],
+      "default": "medium",
+      "description": "Difficulty level"
+    },
+    "duration_days": {
+      "type": "number",
+      "description": "Time to complete in days"
+    },
+    "points": {
+      "type": "number",
+      "default": 10,
+      "description": "Points awarded on completion"
+    },
+    "creator_email": {
+      "type": "string",
+      "description": "Email of who created the challenge"
+    },
+    "participants": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Emails of participants"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "completed",
+        "abandoned"
+      ],
+      "default": "active",
+      "description": "Challenge status"
+    },
+    "started_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the challenge started"
+    },
+    "completed_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When it was completed"
+    },
+    "completion_proof": {
+      "type": "string",
+      "description": "Photo/note proving completion"
+    },
+    "votes_count": {
+      "type": "number",
+      "default": 0,
+      "description": "Votes from partner confirming completion"
+    }
+  },
+  "required": [
+    "title",
+    "description",
+    "category",
+    "duration_days"
+  ]
+}

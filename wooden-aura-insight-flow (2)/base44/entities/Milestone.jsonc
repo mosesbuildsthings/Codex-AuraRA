@@ -1,0 +1,40 @@
+{
+  "name": "Milestone",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Name of the milestone"
+    },
+    "date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date the milestone occurred"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "first",
+        "travel",
+        "anniversary",
+        "achievement",
+        "memory",
+        "other"
+      ],
+      "default": "memory",
+      "description": "Category of milestone"
+    },
+    "emoji": {
+      "type": "string",
+      "description": "Emoji representing this milestone"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Optional personal notes about this milestone"
+    }
+  },
+  "required": [
+    "title",
+    "date"
+  ]
+}

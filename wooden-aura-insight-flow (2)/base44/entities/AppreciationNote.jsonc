@@ -1,0 +1,49 @@
+{
+  "name": "AppreciationNote",
+  "type": "object",
+  "properties": {
+    "sync_space_id": {
+      "type": "string",
+      "description": "Reference to SyncSpace"
+    },
+    "from_email": {
+      "type": "string",
+      "description": "Sender email"
+    },
+    "to_email": {
+      "type": "string",
+      "description": "Recipient email"
+    },
+    "content": {
+      "type": "string",
+      "description": "The appreciation note text"
+    },
+    "theme": {
+      "type": "string",
+      "enum": [
+        "gratitude",
+        "affection",
+        "admiration",
+        "encouragement",
+        "memory"
+      ],
+      "default": "gratitude",
+      "description": "Note theme"
+    },
+    "is_read": {
+      "type": "boolean",
+      "default": false
+    },
+    "read_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the note was read"
+    }
+  },
+  "required": [
+    "sync_space_id",
+    "from_email",
+    "to_email",
+    "content"
+  ]
+}

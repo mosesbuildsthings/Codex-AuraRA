@@ -1,0 +1,67 @@
+{
+  "name": "SharedGoal",
+  "type": "object",
+  "properties": {
+    "sync_space_id": {
+      "type": "string",
+      "description": "Reference to SyncSpace"
+    },
+    "title": {
+      "type": "string",
+      "description": "Goal title"
+    },
+    "description": {
+      "type": "string",
+      "description": "Goal description"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "communication",
+        "quality_time",
+        "intimacy",
+        "conflict_resolution",
+        "adventure",
+        "growth",
+        "other"
+      ],
+      "default": "communication"
+    },
+    "target_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "progress": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 100,
+      "default": 0,
+      "description": "Progress percentage"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "not_started",
+        "in_progress",
+        "completed"
+      ],
+      "default": "not_started"
+    },
+    "created_by": {
+      "type": "string",
+      "description": "Email of who created it"
+    },
+    "last_updated_by": {
+      "type": "string",
+      "description": "Email of who last updated it"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Shared progress notes"
+    }
+  },
+  "required": [
+    "sync_space_id",
+    "title"
+  ]
+}

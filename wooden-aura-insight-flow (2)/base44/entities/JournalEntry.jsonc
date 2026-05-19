@@ -1,0 +1,47 @@
+{
+  "name": "JournalEntry",
+  "type": "object",
+  "properties": {
+    "date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date of the journal entry"
+    },
+    "content": {
+      "type": "string",
+      "description": "The user's journal entry text"
+    },
+    "sentiment": {
+      "type": "string",
+      "enum": [
+        "great",
+        "good",
+        "neutral",
+        "difficult",
+        "tough"
+      ],
+      "description": "How the user felt about the relationship today"
+    },
+    "sentiment_score": {
+      "type": "number",
+      "description": "Numeric score: 5=great, 4=good, 3=neutral, 2=difficult, 1=tough"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Optional tags like 'quality time', 'argument', 'affection'"
+    },
+    "is_private": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether this entry is private to the user"
+    }
+  },
+  "required": [
+    "date",
+    "content",
+    "sentiment"
+  ]
+}

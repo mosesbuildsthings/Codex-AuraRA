@@ -1,0 +1,41 @@
+{
+  "name": "User",
+  "type": "object",
+  "properties": {
+    "role": {
+      "type": "string",
+      "description": "The role of the user in the app",
+      "enum": [
+        "admin",
+        "user",
+        "premium"
+      ]
+    },
+    "profile_photo": {
+      "type": "string",
+      "description": "URL to the user's profile photo"
+    },
+    "bio": {
+      "type": "string",
+      "description": "Short bio about the user"
+    },
+    "attachment_style": {
+      "type": "string",
+      "description": "User's attachment style"
+    },
+    "relationship_intention": {
+      "type": "string",
+      "description": "User's relationship intention"
+    },
+    "personal_goals": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "User's personal growth goals"
+    }
+  },
+  "required": [
+    "role"
+  ]
+}

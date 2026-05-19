@@ -1,0 +1,49 @@
+{
+  "brand": "Aura",
+  "tagline": "Relationship AI",
+  "colors": {
+    "primary_purple": "#8B5CF6",
+    "primary_blue": "#3B82F6",
+    "deep_purple": "#7C3AED",
+    "sky_blue": "#0EA5E9",
+    "success_green": "#10B981",
+    "warning_orange": "#F59E0B",
+    "dark_gray": "#1F2937",
+    "medium_gray": "#6B7280",
+    "light_gray": "#F3F4F6",
+    "white": "#FFFFFF"
+  },
+  "gradients": {
+    "purple_to_blue_primary": [
+      "#8B5CF6",
+      "#3B82F6"
+    ],
+    "purple_depth": [
+      "#8B5CF6",
+      "#7C3AED"
+    ],
+    "blue_harmony": [
+      "#3B82F6",
+      "#0EA5E9"
+    ]
+  },
+  "typography": {
+    "primary_font": "Inter",
+    "fallback": "system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif",
+    "weights": {
+      "bold": 700,
+      "semibold": 600,
+      "medium": 500,
+      "regular": 400
+    },
+    "scale": {
+      "h1": "48px",
+      "h2": "36px",
+      "h3": "30px",
+      "h4": "24px",
+      "body_large": "20px",
+      "body": "16px",
+      "caption": "14px"
+    }
+  }
+}

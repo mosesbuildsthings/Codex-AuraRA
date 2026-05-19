@@ -1,0 +1,27 @@
+﻿# Global
+.DS_Store
+Thumbs.db
+
+# Node / JS
+**/node_modules/
+**/dist/
+**/.vite/
+*.tsbuildinfo
+npm-debug.log*
+
+# Python
+**/__pycache__/
+*.pyc
+
+# Android build outputs
+**/android/.gradle/
+**/android/**/build/
+
+# Local env files
+**/.env
+**/.env.*
+
+# IDE / local tooling
+.vscode/
+.idea/
+

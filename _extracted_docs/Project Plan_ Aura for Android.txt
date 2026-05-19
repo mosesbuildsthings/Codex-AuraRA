@@ -1,0 +1,68 @@
+Project Plan: Aura for Android
+This document outlines the strategic plan and technical roadmap for developing the native Android version of the Aura Relationship Intelligence Platform, from initial setup to submission on the Google Play Store.
+1. Vision & Goal
+The primary goal is to translate the core functionality of the Aura web application into a high-performance, intuitive, and secure native Android application. This will provide users with a superior experience, including better performance, offline access to saved reports, and integration with native device features like the camera and notifications.
+2. Technology Stack Decision
+We need to choose the right technology to build the app. There are two main paths, each with distinct advantages.
+Option A: Native Android (Kotlin & Jetpack Compose)
+Description: This involves writing the app using Kotlin, the official language for Android development, and Jetpack Compose, Google's modern toolkit for building native UI.
+Pros:
+Best Performance & Speed: Directly compiled to run on Android for the fastest, most responsive experience.
+Full Access to Native APIs: Seamless integration with all Android features (camera, notifications, etc.).
+Official Google Support: The most up-to-date and robust tooling and documentation.
+Future-Proof: Aligns with Google's recommended best practices.
+Cons:
+Android Only: The codebase cannot be reused for an iOS app later.
+Option B: Cross-Platform (React Native)
+Description: This involves using JavaScript/TypeScript and React to build the app. The code is then compiled to run on both Android and iOS.
+Pros:
+Code Reusability: Build once, deploy on both Android and iOS, saving significant time and resources if an iPhone app is also in your future plans.
+Faster Development (Potentially): If you are already familiar with React, development can be quicker.
+Cons:
+Performance: While very good, performance might not be as fast as a true native app for highly complex animations or computations.
+Dependency on Third-Party Libraries: May require more external packages for accessing certain native features.
+Recommendation: For your goal of building a top-tier cybersecurity and tech firm, starting with best-in-class technology is key. I recommend Native Android with Kotlin and Jetpack Compose (Option A). This ensures the highest quality product for the Android market and builds a strong foundation. We can always address an iOS version later as a separate project.
+3. Application Architecture
+The Android app will function as a client that communicates with your existing Python backend.
+UI Layer (Jetpack Compose): We will recreate all the screens (Login, Dashboard, New Analysis, Report View) using Jetpack Compose components. This will feel much more fluid and integrated than a web page.
+ViewModel Layer: This will manage the app's state and logic, separating concerns from the UI. For example, a NewAnalysisViewModel will handle the logic for preparing and sending the narrative and images.
+Repository Layer: This will be responsible for handling all data operations—making network calls to your backend and managing local data.
+Networking (Retrofit/Ktor): We will use a modern networking library like Retrofit or Ktor to define and execute the API calls to your backend endpoints (/analyze, /get-reports, etc.).
+Local Caching (Room Database): To improve user experience, we can save reports to a local on-device database. This will allow users to view their past analyses even when they are offline.
+4. Development Roadmap & Feature Implementation
+This will be a phased approach.
+Phase 1: Project Setup & Authentication
+[ ] Set up a new Android Studio project with Kotlin and Jetpack Compose.
+[ ] Integrate the Firebase Authentication SDK for Android.
+[ ] Build the Login and Sign-Up screens.
+[ ] Implement the logic to handle user authentication against your existing Firebase project.
+Phase 2: Core Analysis Flow
+[ ] Build the "New Analysis" screen UI.
+[ ] Implement native text input for the narrative and core question.
+[ ] Integrate the device's camera and photo gallery to allow users to select and upload images.
+[ ] Implement the network call to the /analyze endpoint on your backend, sending the data and handling the loading state.
+Phase 3: Report Viewing & Management
+[ ] Build the Dashboard screen to list past reports.
+[ ] Implement the network call to the /get-reports endpoint.
+[ ] Build the "Report View" screen to display the HTML report received from the backend in a native WebView.
+[ ] Implement the "Download/Share" functionality using native Android sharing features.
+Phase 4: Polishing & Pre-launch
+[ ] Design an app icon and splash screen.
+[ ] Add user-friendly error handling and loading indicators throughout the app.
+[ ] Implement push notifications (optional, but recommended for engagement).
+[ ] Conduct thorough testing on various Android devices and screen sizes.
+5. Google Play Store Submission Checklist
+Publishing to the Google Play Store is a formal process that requires several assets and configurations.
+[ ] Google Play Developer Account: Register for an account ($25 one-time fee).
+[ ] App Signing: Generate a secure upload key and sign your app bundle. This is a critical security step.
+[ ] App Listing Assets:
+App Name: Aura: Relationship Intelligence
+Short & Full Description: Write compelling descriptions for the store listing.
+App Icon: A high-resolution (512x512) icon.
+Feature Graphic: A (1024x500) graphic for the top of the store page.
+Screenshots: At least 2-3 high-quality screenshots from the app for phones, and optionally for tablets.
+[ ] Content Rating: Complete a questionnaire to determine the app's age rating.
+[ ] Privacy Policy: You must provide a publicly accessible URL for a privacy policy. We can generate a comprehensive one based on the app's data handling.
+[ ] Build and Upload: Create a production-ready Android App Bundle (.aab) and upload it to the Play Console for review.
+This plan provides a clear and structured path forward. We can start by tackling Phase 1: Project Setup & Authentication.
+What are your thoughts on this plan, Moses? Specifically, does the recommendation for Native Android with Kotlin align with your vision for the app?

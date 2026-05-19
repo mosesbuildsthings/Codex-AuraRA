@@ -1,0 +1,105 @@
+{
+  "name": "Report",
+  "type": "object",
+  "properties": {
+    "case_id": {
+      "type": "string",
+      "description": "Reference to the AnalysisCase"
+    },
+    "title": {
+      "type": "string",
+      "description": "Report title"
+    },
+    "summary": {
+      "type": "string",
+      "description": "Brief summary of the situation"
+    },
+    "emotional_landscape": {
+      "type": "object",
+      "description": "Emotional tone analysis results",
+      "properties": {
+        "positive": {
+          "type": "number"
+        },
+        "negative": {
+          "type": "number"
+        },
+        "neutral": {
+          "type": "number"
+        },
+        "dominant_emotions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "communication_analysis": {
+      "type": "string",
+      "description": "Deep dive into communication patterns"
+    },
+    "attachment_styles": {
+      "type": "object",
+      "description": "Inferred attachment styles",
+      "properties": {
+        "user_style": {
+          "type": "string"
+        },
+        "partner_style": {
+          "type": "string"
+        },
+        "explanation": {
+          "type": "string"
+        }
+      }
+    },
+    "key_dynamics": {
+      "type": "string",
+      "description": "Analysis of key relationship dynamics"
+    },
+    "red_flags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Detected red flags if any"
+    },
+    "advice": {
+      "type": "string",
+      "description": "The Path Forward - Fatherly Advice section"
+    },
+    "motherly_advice": {
+      "type": "string",
+      "description": "Motherly Advice - warm, nurturing, biblically grounded"
+    },
+    "advice_type": {
+      "type": "string",
+      "enum": [
+        "fatherly",
+        "motherly",
+        "both"
+      ],
+      "default": "both",
+      "description": "Which advice type was requested"
+    },
+    "resources": {
+      "type": "string",
+      "description": "Concluding thoughts and professional resources"
+    },
+    "risk_level": {
+      "type": "string",
+      "enum": [
+        "low",
+        "moderate",
+        "high",
+        "crisis"
+      ],
+      "default": "low",
+      "description": "Overall risk level detected"
+    }
+  },
+  "required": [
+    "case_id"
+  ]
+}

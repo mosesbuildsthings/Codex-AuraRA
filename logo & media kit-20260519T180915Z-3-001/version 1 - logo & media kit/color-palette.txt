@@ -1,0 +1,37 @@
+Primary Purple - #8B5CF6
+Primary Blue - #3B82F6
+Deep Purple - #7C3AED
+Sky Blue - #0EA5E9
+Success Green - #10B981
+Warning Orange - #F59E0B
+Dark Gray - #1F2937
+Medium Gray - #6B7280
+Light Gray - #F3F4F6
+
+Gradian Combinations
+
+Purple to Blue (primary)
+Purple Depth
+Blue Harmony
+
+Typography
+Inter	is	the	primary	typeface.	Use	system	sans-serif	as	a	fallback	for	native
+performance.
+
+
+FONT	WEIGHTS
+Bold	(700)
+Headings	&	Emphasis
+Semibold	(600)
+Subheadings
+Medium	(500)
+Labels	&	UI
+Regular	(400)
+Body	Text
+
+Brand Voice
+Empathetic - We	understand	relationships	are	complex	and	deeply	personal.	Our	tone	is	warm,	supportive,	and	non-judgmental.
+
+Intelligent - We	provide	insights	backed	by	AI	analysis	while	remaining	accessible	and	easy	to	understand.
+
+Private & Secure - We	emphasize	trust,	confidentiality,	and	user	control	over	their	personal	data	and	insights.

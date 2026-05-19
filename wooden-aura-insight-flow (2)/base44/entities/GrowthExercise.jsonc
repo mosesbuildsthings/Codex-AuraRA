@@ -1,0 +1,77 @@
+{
+  "name": "GrowthExercise",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Name of the exercise"
+    },
+    "description": {
+      "type": "string",
+      "description": "Detailed instructions for the exercise"
+    },
+    "attachment_style": {
+      "type": "string",
+      "description": "Target attachment style this exercise helps"
+    },
+    "duration_minutes": {
+      "type": "number",
+      "description": "Estimated time to complete"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "communication",
+        "vulnerability",
+        "boundaries",
+        "presence",
+        "trust",
+        "listening"
+      ],
+      "description": "Type of skill this exercise builds"
+    },
+    "date_assigned": {
+      "type": "string",
+      "format": "date",
+      "description": "Date this exercise was assigned"
+    },
+    "case_id": {
+      "type": "string",
+      "description": "Reference to the analysis case that generated this exercise"
+    },
+    "checkin_mood": {
+      "type": "string",
+      "enum": [
+        "great",
+        "good",
+        "okay",
+        "difficult",
+        "skipped"
+      ],
+      "description": "How the user felt after attempting"
+    },
+    "checkin_notes": {
+      "type": "string",
+      "description": "User's reflection notes after check-in"
+    },
+    "checkin_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date of check-in"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "completed",
+        "skipped"
+      ],
+      "default": "active",
+      "description": "Current status of the exercise"
+    }
+  },
+  "required": [
+    "title",
+    "description"
+  ]
+}

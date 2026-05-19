@@ -1,0 +1,60 @@
+{
+  "name": "RelationshipProfile",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Name for this relationship (e.g. 'Sarah - Partner', 'Mike - Best Friend')"
+    },
+    "relationship_type": {
+      "type": "string",
+      "enum": [
+        "romantic_partner",
+        "spouse",
+        "ex_partner",
+        "friend",
+        "family",
+        "colleague",
+        "other"
+      ],
+      "default": "romantic_partner",
+      "description": "Type of relationship"
+    },
+    "partner_name": {
+      "type": "string",
+      "description": "Name of the other person"
+    },
+    "partner_age": {
+      "type": "number"
+    },
+    "duration": {
+      "type": "string",
+      "description": "How long this relationship has existed"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "archived"
+      ],
+      "default": "active"
+    },
+    "notes": {
+      "type": "string",
+      "description": "General notes about this relationship"
+    },
+    "is_current": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether this is the currently active relationship context"
+    },
+    "emoji": {
+      "type": "string",
+      "description": "An emoji to represent this relationship"
+    }
+  },
+  "required": [
+    "name",
+    "relationship_type"
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "name": "QuizResponse",
+  "type": "object",
+  "properties": {
+    "quiz_id": {
+      "type": "string",
+      "description": "Reference to the Quiz"
+    },
+    "taker_email": {
+      "type": "string",
+      "description": "Email of person taking the quiz"
+    },
+    "score": {
+      "type": "number",
+      "description": "Score out of 100"
+    },
+    "answers": {
+      "type": "array",
+      "description": "User's answers for each question",
+      "items": {
+        "type": "object",
+        "properties": {
+          "question_id": {
+            "type": "string"
+          },
+          "answer": {
+            "type": "string"
+          },
+          "is_correct": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "completed_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the quiz was completed"
+    },
+    "description": {
+      "type": "string",
+      "description": "Optional notes or reflection on this quiz response",
+      "maxLength": 1000
+    }
+  },
+  "required": [
+    "quiz_id",
+    "taker_email",
+    "score"
+  ]
+}

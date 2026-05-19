@@ -1,0 +1,38 @@
+{
+  "name": "PartnerConnection",
+  "type": "object",
+  "properties": {
+    "inviter_email": {
+      "type": "string",
+      "description": "Email of the user who sent the invite"
+    },
+    "partner_email": {
+      "type": "string",
+      "description": "Email of the invited partner"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "accepted",
+        "declined"
+      ],
+      "default": "pending",
+      "description": "Status of the connection"
+    },
+    "shared_goals": {
+      "type": "boolean",
+      "default": true,
+      "description": "Whether relationship goals are shared"
+    },
+    "description": {
+      "type": "string",
+      "description": "Optional note about this partner connection",
+      "maxLength": 1000
+    }
+  },
+  "required": [
+    "inviter_email",
+    "partner_email"
+  ]
+}

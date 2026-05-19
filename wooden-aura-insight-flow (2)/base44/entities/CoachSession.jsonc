@@ -1,0 +1,63 @@
+{
+  "name": "CoachSession",
+  "type": "object",
+  "properties": {
+    "user_email": {
+      "type": "string",
+      "description": "User receiving coaching"
+    },
+    "analysis_period_start": {
+      "type": "string",
+      "format": "date",
+      "description": "Period analyzed (start date)"
+    },
+    "analysis_period_end": {
+      "type": "string",
+      "format": "date",
+      "description": "Period analyzed (end date)"
+    },
+    "mood_summary": {
+      "type": "string",
+      "description": "Summary of mood trends"
+    },
+    "key_insights": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Key insights from journal analysis"
+    },
+    "actionable_advice": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Specific actionable recommendations"
+    },
+    "communication_prompts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Conversation starters for the couple"
+    },
+    "coach_message": {
+      "type": "string",
+      "description": "Full coach personalized message"
+    },
+    "generated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "description": {
+      "type": "string",
+      "description": "Optional description or notes for this coaching session",
+      "maxLength": 1000
+    }
+  },
+  "required": [
+    "user_email",
+    "analysis_period_start",
+    "analysis_period_end"
+  ]
+}

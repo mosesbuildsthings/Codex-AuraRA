@@ -1,0 +1,152 @@
+Aura Future Advice Types
+Google Docs-ready version
+Future updates should include:
+Entrepreneur: Advice for entrepreneurs who are just getting started. The advice should come from an experienced, successful, multi-millionaire who has successfully built and run multiple complex businesses in various sectors and is now retired. This individual should now be mentoring people and helping people build businesses from ideation to their first revenue streams, then to scaling multi-million-dollar businesses. [cite:22]
+Teacher: Should teach advice that helps students study for tests and exams. The teacher should be experienced. The teacher will learn the user’s learning style and tailor the learning advice according to their comprehension level, pace, and preferred study style. [cite:22]
+Career Advice: Should help users navigate job choices, career transitions, promotions, layoffs, workplace politics, salary negotiations, resume improvements, interview preparation, and long-term career planning. It should adapt to whether the user is a student, early-career professional, mid-career professional, executive, or someone starting over. [cite:22]
+Legal Advice: Should help users better understand common legal situations, documents, risks, and next steps in plain language. It can help with contracts, landlord-tenant issues, small claims, employment issues, business formation, intellectual property basics, consumer rights, and legal document preparation support, while making clear when a licensed attorney is needed. [cite:22]
+Health Advice: Should provide practical, easy-to-understand wellness guidance for everyday health concerns, lifestyle improvements, nutrition, sleep, fitness, stress, and prevention. It should help users understand symptoms, healthy habits, and possible next steps, while clearly encouraging professional medical care for emergencies, diagnoses, prescriptions, and serious conditions. [cite:22]
+Relationship Advice: Should help users with dating, communication, trust, boundaries, conflict resolution, emotional compatibility, breakups, reconciliation, marriage concerns, and family relationship dynamics. It should understand both emotional nuance and practical next steps.
+Mental Wellness Advice: Should help users manage stress, burnout, anxiety, overthinking, confidence issues, loneliness, motivation, emotional regulation, and life pressure in a supportive way. It should offer grounded coping strategies, reflection prompts, and habit-based improvement while clearly distinguishing coaching from therapy or crisis care.
+Financial Advice: Should help users budget, save money, reduce debt, improve credit, plan for emergencies, invest carefully, compare financial choices, and set financial goals. It should also help users understand taxes, side income, and basic wealth-building strategies in language that is easy to follow.
+Parenting Advice: Should help parents navigate discipline, communication, routines, child development, school concerns, co-parenting, and emotional support for children at different ages. It should be practical, calm, and age-aware.
+Life Coaching: Should help users make decisions, set goals, stay accountable, build confidence, improve habits, and create structure in their lives. This would be useful for people who feel stuck, overwhelmed, or unsure about what to do next.
+Spiritual Advice: Should help users explore faith, purpose, meaning, prayer, discipline, doubt, moral questions, and personal growth through a spiritual lens. It could be personalized based on the user’s beliefs or values.
+Productivity Advice: Should help users manage time, reduce procrastination, build routines, improve focus, organize tasks, and finish what they start.
+Business Strategy Advice: Should help business owners with positioning, pricing, offers, customer acquisition, branding, operations, partnerships, retention, and growth strategy.
+Startup Fundraising Advice: Should help founders prepare for pitch decks, investor outreach, fundraising strategy, traction storytelling, valuation conversations, and understanding what investors look for.
+Marketing Advice: Should help users grow visibility through branding, content strategy, social media, paid ads, email marketing, funnels, SEO, community growth, and customer psychology.
+Sales Advice: Should help users improve persuasion, objection handling, outreach, closing, follow-up, lead qualification, and relationship-based selling.
+Technology Advice: Should help users make decisions about software, hardware, platforms, tools, integrations, automation, digital workflows, and implementation choices.
+Cybersecurity Advice: Should help users understand online safety, phishing, password security, privacy risks, identity protection, device security, business cyber hygiene, and basic incident response.
+Developer/Programming Advice: Should help users debug code, choose tech stacks, structure projects, understand concepts, improve code quality, and build apps faster.
+UI/UX Advice: Should help users improve usability, product flows, accessibility, wireframes, conversion design, layout decisions, and design system consistency.
+Student Advice: Should help with school-life balance, motivation, assignments, studying, academic planning, class performance, test prep, and managing deadlines.
+Travel Advice: Should help users plan trips, compare destinations, build itineraries, manage budgets, understand travel logistics, and choose experiences based on their preferences and budget.
+Fitness Advice: Should help users with workout planning, fat loss, muscle gain, endurance, recovery, mobility, consistency, and realistic goal tracking.
+Nutrition Advice: Should help users improve eating habits, meal planning, calorie awareness, performance nutrition, healthy grocery choices, and sustainable lifestyle changes without being overly restrictive.
+Fashion/Style Advice: Should help users improve personal style, outfit choices, grooming, confidence, event dressing, and shopping decisions based on budget, body type, goals, and aesthetic preference.
+Home/Living Advice: Should help users with renting, moving, organization, furniture decisions, roommate issues, home setup, smart home tools, and making their environment more functional and comfortable.
+Product roadmap version
+Phase 1: High-demand foundation categories
+These categories solve broad, repeat-use problems and would likely drive strong engagement early:
+Relationship Advice
+Financial Advice
+Career Advice [cite:22]
+Health Advice [cite:22]
+Mental Wellness Advice
+Productivity Advice
+Legal Advice [cite:22]
+Phase 2: Professional and builder ecosystem
+These categories align well with ambitious users, founders, students, freelancers, and professionals:
+Entrepreneur [cite:22]
+Business Strategy Advice
+Startup Fundraising Advice
+Marketing Advice
+Sales Advice
+Technology Advice
+Cybersecurity Advice
+Developer/Programming Advice
+UI/UX Advice
+Phase 3: Education and self-improvement
+These categories support long-term retention because users often return repeatedly for growth-oriented help:
+Teacher [cite:22]
+Student Advice
+Life Coaching
+Spiritual Advice
+Fitness Advice
+Nutrition Advice
+Phase 4: Family, lifestyle, and everyday decisions
+These categories expand Aura into a broader life-advice platform:
+Parenting Advice
+Travel Advice
+Fashion/Style Advice
+Home/Living Advice
+Suggested rollout strategy
+Launch with a small number of highly useful categories instead of too many at once.
+Give each advice type a clear persona, tone, and use case.
+Build trust-heavy categories carefully, especially health, legal, mental wellness, and financial advice. [cite:22]
+Let users choose between quick advice, deep guidance, and action-plan mode.
+Add personalization so Aura adapts to a user’s goals, behavior, communication style, and stage of life.
+Advice types table
+Advice Type
+Main Purpose
+Example User Questions
+Entrepreneur
+Help users build and scale businesses. [cite:22]
+“How do I validate my startup idea?” / “How do I get my first 10 customers?”
+Teacher
+Help users study based on their learning style. [cite:22]
+“Can you help me study for my networking exam?” / “Quiz me on this chapter.”
+Career Advice
+Help users grow, pivot, or recover professionally. [cite:22]
+“Should I switch careers?” / “How do I negotiate a higher salary?”
+Legal Advice
+Help users understand common legal situations and next steps. [cite:22]
+“Can you explain this contract?” / “What should I do about a landlord dispute?”
+Health Advice
+Help users with wellness guidance and healthy next steps. [cite:22]
+“How can I improve my sleep?” / “What lifestyle changes help with stress?”
+Relationship Advice
+Help users navigate dating, communication, conflict, and trust.
+“Should I bring up exclusivity?” / “How do I rebuild trust after an argument?”
+Mental Wellness Advice
+Help users manage emotional pressure and daily mental strain.
+“How do I stop overthinking?” / “What can I do when I feel burned out?”
+Financial Advice
+Help users manage money and build stability.
+“How do I pay off debt faster?” / “How should I start budgeting?”
+Parenting Advice
+Help users with raising children and family dynamics.
+“How do I handle a child’s behavior calmly?” / “How can I improve co-parenting communication?”
+Life Coaching
+Help users gain clarity, structure, and accountability.
+“I feel stuck in life, what should I do next?” / “How do I build better habits?”
+Spiritual Advice
+Help users with faith, meaning, and personal growth.
+“How do I stay disciplined spiritually?” / “How do I deal with doubt?”
+Productivity Advice
+Help users manage time, focus, and follow-through.
+“How do I stop procrastinating?” / “Can you help me build a weekly system?”
+Business Strategy Advice
+Help business owners make growth and positioning decisions.
+“How should I price this offer?” / “What’s the best growth strategy for this business?”
+Startup Fundraising Advice
+Help founders prepare for investment conversations.
+“How do I pitch investors?” / “What should go in my deck?”
+Marketing Advice
+Help users attract attention and grow an audience or customer base.
+“How do I market my app?” / “What content strategy should I use?”
+Sales Advice
+Help users close deals and improve conversion.
+“How do I handle objections?” / “How do I improve my sales calls?”
+Technology Advice
+Help users make smart tech and tooling decisions.
+“What software stack should I choose?” / “What tools can automate this process?”
+Cybersecurity Advice
+Help users improve digital safety and security awareness.
+“How do I protect my accounts better?” / “What should a small business do for cyber hygiene?”
+Developer/Programming Advice
+Help users code, debug, and architect projects.
+“Why is my API failing?” / “What’s the best stack for this app?”
+UI/UX Advice
+Help users improve product design and usability.
+“How can I improve onboarding?” / “What is wrong with this user flow?”
+Student Advice
+Help users manage school and academic performance.
+“How do I stop falling behind in class?” / “Can you help me create a study plan?”
+Travel Advice
+Help users plan better trips.
+“What’s the best itinerary for 4 days in Chicago?” / “How do I travel on a budget?”
+Fitness Advice
+Help users build exercise consistency and results.
+“What workout split should I use?” / “How do I lose fat without losing muscle?”
+Nutrition Advice
+Help users improve eating habits and performance.
+“What should I meal prep for the week?” / “How do I eat better without overcomplicating it?”
+Fashion/Style Advice
+Help users improve presentation and confidence.
+“What should I wear to this event?” / “How do I build a better wardrobe on a budget?”
+Home/Living Advice
+Help users improve day-to-day living situations.
+“How should I set up a productive workspace?” / “How do I deal with a difficult roommate?”

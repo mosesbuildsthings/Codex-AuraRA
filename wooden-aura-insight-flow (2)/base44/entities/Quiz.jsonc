@@ -1,0 +1,67 @@
+{
+  "name": "Quiz",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Quiz title"
+    },
+    "description": {
+      "type": "string",
+      "description": "Quiz description"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "compatibility",
+        "how_well_do_you_know_me"
+      ],
+      "default": "how_well_do_you_know_me",
+      "description": "Quiz type"
+    },
+    "creator_email": {
+      "type": "string",
+      "description": "Email of who created the quiz"
+    },
+    "partner_email": {
+      "type": "string",
+      "description": "Email of partner (for shared quizzes)"
+    },
+    "questions": {
+      "type": "array",
+      "description": "Array of quiz questions",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "text": {
+            "type": "string"
+          },
+          "options": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "correct_answer": {
+            "type": "string"
+          },
+          "order": {
+            "type": "number"
+          }
+        }
+      }
+    },
+    "is_shared": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether both partners can take this quiz"
+    }
+  },
+  "required": [
+    "title",
+    "questions"
+  ]
+}

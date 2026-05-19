@@ -1,0 +1,111 @@
+{
+  "name": "AnalysisCase",
+  "type": "object",
+  "properties": {
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "submitted",
+        "analyzing",
+        "completed",
+        "error"
+      ],
+      "default": "draft",
+      "description": "Current status of the analysis case"
+    },
+    "narrative": {
+      "type": "string",
+      "description": "The user's written story/narrative"
+    },
+    "core_question": {
+      "type": "string",
+      "description": "The primary question the user wants answered"
+    },
+    "advice_type": {
+      "type": "string",
+      "enum": [
+        "fatherly",
+        "motherly",
+        "both"
+      ],
+      "default": "both",
+      "description": "Which advice perspective was requested"
+    },
+    "relationship_status": {
+      "type": "string",
+      "enum": [
+        "dating",
+        "engaged",
+        "married",
+        "separated",
+        "long_distance",
+        "broken_up"
+      ],
+      "description": "Current relationship status"
+    },
+    "primary_challenges": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "List of primary relationship challenges"
+    },
+    "user_age": {
+      "type": "number",
+      "description": "User's age"
+    },
+    "partner_age": {
+      "type": "number",
+      "description": "Partner's age"
+    },
+    "has_children": {
+      "type": "boolean",
+      "description": "Whether children are involved"
+    },
+    "children_context": {
+      "type": "string",
+      "enum": [
+        "current_relationship",
+        "previous_relationship",
+        "both"
+      ],
+      "description": "Context of children in the relationship"
+    },
+    "is_coparenting": {
+      "type": "boolean",
+      "description": "Whether user is co-parenting with an ex"
+    },
+    "uploaded_files": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "URLs of uploaded evidence files"
+    },
+    "consent_narrative": {
+      "type": "boolean",
+      "default": false,
+      "description": "Consent for narrative analysis"
+    },
+    "consent_screenshots": {
+      "type": "boolean",
+      "default": false,
+      "description": "Consent for screenshot analysis"
+    },
+    "consent_media": {
+      "type": "boolean",
+      "default": false,
+      "description": "Consent for photo/video analysis"
+    },
+    "description": {
+      "type": "string",
+      "description": "Optional additional description or context for this analysis case",
+      "maxLength": 1000
+    }
+  },
+  "required": [
+    "narrative",
+    "core_question"
+  ]
+}

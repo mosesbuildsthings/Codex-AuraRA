@@ -43,12 +43,12 @@ export function RelationshipManagerPage() {
         <ul className="report-list stacked">
           {data.relationships.map((relationship) => (
             <li key={relationship.id}>
-              <div>
-                <p className="report-title">{relationship.label}</p>
-                <small>
-                  {relationship.counterpart} · {relationship.status.replaceAll("_", " ")}
-                </small>
-              </div>
+                <div>
+                  <p className="report-title">{relationship.label}</p>
+                  <small>
+                    {relationship.counterpart} - {relationship.status.replaceAll("_", " ")}
+                  </small>
+                </div>
               <button
                 type="button"
                 className="secondary-button"

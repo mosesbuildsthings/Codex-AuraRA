@@ -104,7 +104,7 @@ export function ReportPage() {
       <article className="surface">
         <h2>{currentReport.title}</h2>
         <p>
-          {currentReport.relationshipLabel} · {new Date(currentReport.createdAt).toLocaleString()} · Risk level: {currentReport.riskLevel}
+          {currentReport.relationshipLabel} - {new Date(currentReport.createdAt).toLocaleString()} - Risk level: {currentReport.riskLevel}
         </p>
       </article>
 

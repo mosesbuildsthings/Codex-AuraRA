@@ -6,18 +6,23 @@ interface ShellProps {
   children: ReactNode;
 }
 
-const navLinks = [
-  { to: "/dashboard", label: "Home" },
-  { to: "/new-analysis", label: "New Analysis" },
-  { to: "/sessions", label: "Sessions" },
-  { to: "/relationships", label: "Relationship Manager" },
-  { to: "/profile", label: "Profile" },
+const primaryNavLinks = [
+  { to: "/dashboard", label: "Home", badge: "01" },
+  { to: "/sessions", label: "Sessions", badge: "02" },
+  { to: "/new-analysis", label: "Insights", badge: "03" },
+  { to: "/relationships", label: "Tools", badge: "04" },
+  { to: "/profile", label: "Profile", badge: "05" },
+];
+
+const utilityNavLinks = [
   { to: "/premium", label: "Premium" },
-  { to: "/advice-types", label: "Future Advice Types" },
   { to: "/feedback", label: "Feedback" },
+  { to: "/advice-types", label: "Future Advice Types" },
   { to: "/privacy-policy", label: "Privacy Policy" },
   { to: "/terms", label: "Terms" },
 ];
+
+const allNavLinks = [...primaryNavLinks, ...utilityNavLinks];
 
 function SessionCountdown({ expiresAt }: { expiresAt: string }): ReactNode {
   const [remainingMs, setRemainingMs] = useState(() =>
@@ -38,7 +43,7 @@ function SessionCountdown({ expiresAt }: { expiresAt: string }): ReactNode {
   const seconds = Math.max(0, Math.floor((remainingMs % 60_000) / 1000));
   return (
     <span className="session-timer">
-      Session: {minutes}:{String(seconds).padStart(2, "0")}
+      Session {minutes}:{String(seconds).padStart(2, "0")}
     </span>
   );
 }
@@ -49,56 +54,36 @@ export function AppShell({ children }: ShellProps): ReactNode {
   const location = useLocation();
 
   const activeLabel = useMemo(() => {
-    const match = navLinks.find((link) => link.to === location.pathname);
+    if (location.pathname.startsWith("/report/")) {
+      return "Session Report";
+    }
+    const match = allNavLinks.find((link) => link.to === location.pathname);
     return match?.label ?? "Aura";
   }, [location.pathname]);
 
-  const isLoggedIn = Boolean(data.session);
-
   return (
-    <div className="app-shell">
-      <header className="app-header">
-        <button
-          type="button"
-          className="menu-trigger"
-          onClick={() => setMenuOpen((current) => !current)}
-          aria-label="Toggle menu"
-        >
-          <span />
-          <span />
-          <span />
-        </button>
+    <div className="aura-shell">
+      <aside className={`aura-sidebar ${menuOpen ? "open" : ""}`}>
+        <Link to="/dashboard" className="aura-brand">
+          <img src="/brand/aura-logo-reverse-transparent.svg" alt="Aura" />
+        </Link>
 
-        <div>
-          <p className="brand-kicker">Aura Rebuild</p>
-          <h1>{activeLabel}</h1>
-        </div>
-
-        <div className="header-right">
-          <span className={`plan-chip ${data.plan}`}>{data.plan === "premium" ? "Premium" : "Free"}</span>
-          {data.session ? <SessionCountdown expiresAt={data.session.expiresAt} /> : null}
-          {isLoggedIn ? (
-            <button
-              type="button"
-              className="ghost-button"
-              onClick={() => dispatch({ type: "logout" })}
+        <nav className="aura-primary-nav" aria-label="Primary">
+          {primaryNavLinks.map((link) => (
+            <Link
+              key={link.to}
+              to={link.to}
+              className={location.pathname === link.to ? "active" : ""}
+              onClick={() => setMenuOpen(false)}
             >
-              Log out
-            </button>
-          ) : null}
-        </div>
-      </header>
+              <span className="nav-badge">{link.badge}</span>
+              <span>{link.label}</span>
+            </Link>
+          ))}
+        </nav>
 
-      <aside className={`app-menu ${menuOpen ? "open" : ""}`}>
-        <div className="menu-head">
-          <h2>Navigate</h2>
-          <button type="button" className="ghost-button" onClick={() => setMenuOpen(false)}>
-            Close
-          </button>
-        </div>
-
-        <nav>
-          {navLinks.map((link) => (
+        <nav className="aura-utility-nav" aria-label="Utility">
+          {utilityNavLinks.map((link) => (
             <Link
               key={link.to}
               to={link.to}
@@ -109,11 +94,48 @@ export function AppShell({ children }: ShellProps): ReactNode {
             </Link>
           ))}
         </nav>
+
+        <div className="sidebar-foot">
+          <Link className="premium-cta" to="/premium" onClick={() => setMenuOpen(false)}>
+            Upgrade to Premium
+          </Link>
+          {data.session ? <SessionCountdown expiresAt={data.session.expiresAt} /> : null}
+          <button type="button" className="ghost-button logout-button" onClick={() => dispatch({ type: "logout" })}>
+            Log Out
+          </button>
+        </div>
       </aside>
 
       {menuOpen ? <button type="button" className="menu-overlay" onClick={() => setMenuOpen(false)} /> : null}
 
-      <main className="app-content">{children}</main>
+      <section className="aura-workspace">
+        <header className="aura-topbar">
+          <button
+            type="button"
+            className="menu-trigger"
+            onClick={() => setMenuOpen((current) => !current)}
+            aria-label="Toggle navigation menu"
+          >
+            <span />
+            <span />
+            <span />
+          </button>
+
+          <div>
+            <p className="brand-kicker">Aura Relationship Intelligence</p>
+            <h1>{activeLabel}</h1>
+          </div>
+
+          <div className="topbar-right">
+            <Link className="primary-button compact" to="/new-analysis">
+              New Session
+            </Link>
+            <span className={`plan-chip ${data.plan}`}>{data.plan === "premium" ? "Premium" : "Free Plan"}</span>
+          </div>
+        </header>
+
+        <main className="app-content">{children}</main>
+      </section>
     </div>
   );
 }

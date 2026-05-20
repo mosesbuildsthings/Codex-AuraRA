@@ -28,6 +28,7 @@ export function NewAnalysisPage() {
   const [challenges, setChallenges] = useState<ChallengeKey[]>([]);
   const [evidence, setEvidence] = useState<EvidenceItem[]>([]);
   const [isEncrypting, setIsEncrypting] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [processingMessage, setProcessingMessage] = useState("");
   const [contextTouched, setContextTouched] = useState(false);
   const [questionTouched, setQuestionTouched] = useState(false);
@@ -49,8 +50,8 @@ export function NewAnalysisPage() {
   }
 
   const canSubmit = useMemo(() => {
-    return Boolean(narrative.trim() && context.trim() && coreQuestion.trim() && !isEncrypting);
-  }, [narrative, context, coreQuestion, isEncrypting]);
+    return Boolean(narrative.trim() && context.trim() && coreQuestion.trim() && !isEncrypting && !isSubmitting);
+  }, [narrative, context, coreQuestion, isEncrypting, isSubmitting]);
 
   function toggleChallenge(challenge: ChallengeKey) {
     setChallenges((current) => {
@@ -113,29 +114,59 @@ export function NewAnalysisPage() {
     setSelectedVoice(next);
   }
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     if (!activeRelationship || !canSubmit) return;
 
-    const input: AnalysisFormInput = {
-      relationshipId: activeRelationship.id,
-      title: title.trim(),
-      narrative: narrative.trim(),
-      context: context.trim(),
-      coreQuestion: coreQuestion.trim(),
-      relationshipStatus,
-      challenges,
-      challengeOtherText: challengeOtherText.trim(),
-      selectedVoice,
-      includeFullReport: data.plan === "premium",
-      evidence,
-    };
+    setIsSubmitting(true);
 
-    const report = buildReport(input, activeRelationship.label, data.plan, data.profile);
-    dispatch({ type: "add_report", payload: report });
-    dispatch({ type: "refresh_session" });
+    try {
+      const input: AnalysisFormInput = {
+        relationshipId: activeRelationship.id,
+        title: title.trim(),
+        narrative: narrative.trim(),
+        context: context.trim(),
+        coreQuestion: coreQuestion.trim(),
+        relationshipStatus,
+        challenges,
+        challengeOtherText: challengeOtherText.trim(),
+        selectedVoice,
+        includeFullReport: data.plan === "premium",
+        evidence,
+      };
 
-    navigate(`/report/${report.id}`);
+      const report = buildReport(input, activeRelationship.label, data.plan, data.profile);
+      await new Promise((resolve) => window.setTimeout(resolve, 900));
+      dispatch({ type: "add_report", payload: report });
+      dispatch({ type: "refresh_session" });
+      navigate(`/report/${report.id}`);
+    } finally {
+      setIsSubmitting(false);
+    }
+  }
+
+  if (isSubmitting) {
+    return (
+      <section className="stack-lg">
+        <article className="surface stack">
+          <p className="eyebrow">Processing</p>
+          <h2>Aura is working on your analysis</h2>
+          <p>
+            Building narrative patterns, context synthesis, and relationship guidance from your submission.
+          </p>
+
+          <div className="analysis-progress">
+            <span className="analysis-progress-bar" />
+          </div>
+
+          <ul className="summary-list">
+            <li>Analyzing narrative tone and communication style</li>
+            <li>Mapping context and challenge clusters</li>
+            <li>Preparing actionable guidance</li>
+          </ul>
+        </article>
+      </section>
+    );
   }
 
   return (

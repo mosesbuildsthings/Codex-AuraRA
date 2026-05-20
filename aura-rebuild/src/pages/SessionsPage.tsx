@@ -20,7 +20,7 @@ export function SessionsPage() {
                 <div>
                   <p className="report-title">{report.title}</p>
                   <small>
-                    {report.relationshipLabel} · {new Date(report.createdAt).toLocaleString()}
+                    {report.relationshipLabel} - {new Date(report.createdAt).toLocaleString()}
                   </small>
                 </div>
                 <Link className="secondary-button" to={`/report/${report.id}`}>

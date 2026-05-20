@@ -1,10 +1,11 @@
-import { type FormEvent, useState } from "react";
+import { type FormEvent, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAppState } from "../state/AppStateContext";
 
 export function LoginPage() {
   const navigate = useNavigate();
   const { dispatch } = useAppState();
+  const nameRef = useRef<HTMLInputElement>(null);
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -24,17 +25,49 @@ export function LoginPage() {
   }
 
   return (
-    <section className="surface hero-panel">
-      <p className="eyebrow">Private. Structured. Secure.</p>
-      <h2>Aura Relationship Intelligence</h2>
-      <p>
-        A confidential space for narrative analysis, evidence-aware context, and action-focused guidance.
-      </p>
+    <section className="landing-screen">
+      <header className="landing-nav">
+        <img src="/brand/aura-logo-reverse-transparent.svg" alt="Aura" />
+        <div className="button-row">
+          <button
+            type="button"
+            className="ghost-button"
+            onClick={() => nameRef.current?.focus()}
+          >
+            Log In
+          </button>
+          <button
+            type="button"
+            className="secondary-button"
+            onClick={() => nameRef.current?.focus()}
+          >
+            Sign Up
+          </button>
+        </div>
+      </header>
 
-      <form className="stack" onSubmit={handleSubmit}>
+      <article className="surface landing-hero-card">
+        <p className="eyebrow">AI-Powered Relationship Intelligence</p>
+        <h2>A private, secure space to reflect on your relationship</h2>
+        <p>
+          Receive thoughtful, structured guidance from Aura while keeping your relationship narrative confidential and
+          in your control.
+        </p>
+        <div className="hero-actions">
+          <button type="button" className="primary-button" onClick={() => nameRef.current?.focus()}>
+            New Session
+          </button>
+          <Link className="secondary-button" to="/privacy-policy">
+            Privacy Policy
+          </Link>
+        </div>
+      </article>
+
+      <form className="surface stack landing-form-card" onSubmit={handleSubmit}>
         <label>
           Name
           <input
+            ref={nameRef}
             value={name}
             onChange={(event) => setName(event.target.value)}
             placeholder="Your name"
@@ -89,12 +122,13 @@ export function LoginPage() {
         </div>
 
         <button type="submit" className="primary-button" disabled={!canContinue}>
-          Start Secure Session
+          Begin Reflection
         </button>
       </form>
 
       <div className="legal-inline">
         <Link to="/privacy-policy">Privacy Policy</Link>
+        <span>|</span>
         <Link to="/terms">Terms</Link>
       </div>
     </section>

@@ -236,6 +236,13 @@ ol {
   transition: 180ms ease;
 }
 
+.nav-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  opacity: 0.9;
+}
+
 .aura-primary-nav a:hover,
 .aura-utility-nav a:hover {
   background: rgba(92, 112, 210, 0.13);
@@ -375,6 +382,10 @@ ol {
   display: grid;
   gap: 1rem;
   animation: fade-up 200ms ease;
+}
+
+.mobile-tabbar {
+  display: none;
 }
 
 @keyframes fade-up {
@@ -710,9 +721,52 @@ ol {
     top: 0.4rem;
   }
 
+  .app-content {
+    margin-bottom: 5rem;
+  }
+
   .public-page {
     width: calc(100% - 0.7rem);
     margin-top: 0.55rem;
+  }
+
+  .mobile-tabbar {
+    position: fixed;
+    left: 0.4rem;
+    right: 0.4rem;
+    bottom: 0.4rem;
+    z-index: 4;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0.38rem;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 0.38rem;
+    background: rgba(8, 18, 60, 0.94);
+    backdrop-filter: blur(10px);
+  }
+
+  .mobile-tabbar a {
+    min-height: 52px;
+    border-radius: 12px;
+    display: grid;
+    place-items: center;
+    gap: 0.22rem;
+    color: var(--text-muted);
+    font-size: 0.69rem;
+    text-align: center;
+    padding: 0.35rem 0.18rem;
+  }
+
+  .mobile-tabbar a.active {
+    background: var(--accent-soft);
+    color: #ffffff;
+  }
+
+  .mobile-tab-icon {
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
   }
 }
 

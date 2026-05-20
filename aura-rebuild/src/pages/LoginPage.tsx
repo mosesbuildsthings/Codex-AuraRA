@@ -1,48 +1,18 @@
-import { type FormEvent, useRef, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { useAppState } from "../state/AppStateContext";
+import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export function LoginPage() {
-  const navigate = useNavigate();
-  const { dispatch } = useAppState();
-  const nameRef = useRef<HTMLInputElement>(null);
-
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [consents, setConsents] = useState({
-    narrative: false,
-    evidence: false,
-    media: false,
-  });
-
-  const canContinue = name.trim() && email.trim() && Object.values(consents).every(Boolean);
-
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    if (!canContinue) return;
-    dispatch({ type: "login", payload: { name: name.trim(), email: email.trim() } });
-    navigate("/dashboard");
-  }
-
   return (
     <section className="landing-screen">
       <header className="landing-nav">
         <img src="/brand/aura-logo-reverse-transparent.svg" alt="Aura" />
         <div className="button-row">
-          <button
-            type="button"
-            className="ghost-button"
-            onClick={() => nameRef.current?.focus()}
-          >
+          <Link className="ghost-button" to="/onboarding">
             Log In
-          </button>
-          <button
-            type="button"
-            className="secondary-button"
-            onClick={() => nameRef.current?.focus()}
-          >
+          </Link>
+          <Link className="secondary-button" to="/onboarding">
             Sign Up
-          </button>
+          </Link>
         </div>
       </header>
 
@@ -54,77 +24,31 @@ export function LoginPage() {
           in your control.
         </p>
         <div className="hero-actions">
-          <button type="button" className="primary-button" onClick={() => nameRef.current?.focus()}>
-            New Session
-          </button>
+          <Link className="primary-button" to="/onboarding">
+            New Session <ArrowRight size={16} />
+          </Link>
           <Link className="secondary-button" to="/privacy-policy">
             Privacy Policy
+          </Link>
+          <Link className="secondary-button" to="/terms">
+            Terms
           </Link>
         </div>
       </article>
 
-      <form className="surface stack landing-form-card" onSubmit={handleSubmit}>
-        <label>
-          Name
-          <input
-            ref={nameRef}
-            value={name}
-            onChange={(event) => setName(event.target.value)}
-            placeholder="Your name"
-            autoComplete="name"
-          />
-        </label>
-
-        <label>
-          Email
-          <input
-            type="email"
-            value={email}
-            onChange={(event) => setEmail(event.target.value)}
-            placeholder="you@example.com"
-            autoComplete="email"
-          />
-        </label>
-
-        <div className="consent-grid">
-          <label>
-            <input
-              type="checkbox"
-              checked={consents.narrative}
-              onChange={(event) =>
-                setConsents((current) => ({ ...current, narrative: event.target.checked }))
-              }
-            />
-            Narrative analysis consent
-          </label>
-
-          <label>
-            <input
-              type="checkbox"
-              checked={consents.evidence}
-              onChange={(event) =>
-                setConsents((current) => ({ ...current, evidence: event.target.checked }))
-              }
-            />
-            Evidence locker processing consent
-          </label>
-
-          <label>
-            <input
-              type="checkbox"
-              checked={consents.media}
-              onChange={(event) =>
-                setConsents((current) => ({ ...current, media: event.target.checked }))
-              }
-            />
-            Media interpretation consent
-          </label>
+      <article className="surface stack landing-form-card">
+        <h3>How Aura Works</h3>
+        <ul className="summary-list">
+          <li>Start with onboarding and consent setup.</li>
+          <li>Submit your relationship narrative and context.</li>
+          <li>Track mood, insights, and sessions from your dashboard tools.</li>
+        </ul>
+        <div className="button-row">
+          <Link className="primary-button" to="/onboarding">
+            Continue to Onboarding
+          </Link>
         </div>
-
-        <button type="submit" className="primary-button" disabled={!canContinue}>
-          Begin Reflection
-        </button>
-      </form>
+      </article>
 
       <div className="legal-inline">
         <Link to="/privacy-policy">Privacy Policy</Link>

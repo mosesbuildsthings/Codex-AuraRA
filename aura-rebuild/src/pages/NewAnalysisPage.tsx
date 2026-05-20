@@ -136,37 +136,15 @@ export function NewAnalysisPage() {
       };
 
       const report = buildReport(input, activeRelationship.label, data.plan, data.profile);
-      await new Promise((resolve) => window.setTimeout(resolve, 900));
       dispatch({ type: "add_report", payload: report });
       dispatch({ type: "refresh_session" });
-      navigate(`/report/${report.id}`);
-    } finally {
+      navigate(`/analyzing/${report.id}`);
+      window.setTimeout(() => {
+        navigate(`/report/${report.id}`);
+      }, 1200);
+    } catch {
       setIsSubmitting(false);
     }
-  }
-
-  if (isSubmitting) {
-    return (
-      <section className="stack-lg">
-        <article className="surface stack">
-          <p className="eyebrow">Processing</p>
-          <h2>Aura is working on your analysis</h2>
-          <p>
-            Building narrative patterns, context synthesis, and relationship guidance from your submission.
-          </p>
-
-          <div className="analysis-progress">
-            <span className="analysis-progress-bar" />
-          </div>
-
-          <ul className="summary-list">
-            <li>Analyzing narrative tone and communication style</li>
-            <li>Mapping context and challenge clusters</li>
-            <li>Preparing actionable guidance</li>
-          </ul>
-        </article>
-      </section>
-    );
   }
 
   return (

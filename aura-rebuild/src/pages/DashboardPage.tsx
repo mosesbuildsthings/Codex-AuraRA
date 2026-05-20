@@ -42,8 +42,26 @@ export function DashboardPage() {
           <Link className="primary-button" to="/new-analysis">
             Start New Analysis
           </Link>
-          <Link className="secondary-button" to="/sessions">
-            View Sessions
+          <Link className="secondary-button" to="/archive">
+            Session Archive
+          </Link>
+          <Link className="secondary-button" to="/health">
+            Health Dashboard
+          </Link>
+          <Link className="secondary-button" to="/journal">
+            Open Journal
+          </Link>
+          <Link className="secondary-button" to="/exercise-library">
+            Explore Tools
+          </Link>
+          <Link className="secondary-button" to="/coach">
+            AI Coach
+          </Link>
+          <Link className="secondary-button" to="/analysis-management">
+            Manage Analyses
+          </Link>
+          <Link className="secondary-button" to="/privacy-settings">
+            Privacy Settings
           </Link>
           <Link className="secondary-button" to="/premium">
             Manage Premium

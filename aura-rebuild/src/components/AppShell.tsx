@@ -1,3 +1,19 @@
+import {
+  Archive,
+  BarChart3,
+  BookOpen,
+  Crown,
+  FileText,
+  Home,
+  MessageSquare,
+  Settings,
+  Shield,
+  Sparkles,
+  User,
+  Users,
+  Wrench,
+  type LucideIcon,
+} from "lucide-react";
 import { useEffect, useMemo, useState, type ReactNode } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useAppState } from "../state/AppStateContext";
@@ -6,23 +22,66 @@ interface ShellProps {
   children: ReactNode;
 }
 
-const primaryNavLinks = [
-  { to: "/dashboard", label: "Home", badge: "01" },
-  { to: "/sessions", label: "Sessions", badge: "02" },
-  { to: "/new-analysis", label: "Insights", badge: "03" },
-  { to: "/relationships", label: "Tools", badge: "04" },
-  { to: "/profile", label: "Profile", badge: "05" },
+interface NavLinkItem {
+  to: string;
+  label: string;
+  icon: LucideIcon;
+  badge?: string;
+}
+
+const primaryNavLinks: NavLinkItem[] = [
+  { to: "/dashboard", label: "Home", icon: Home, badge: "01" },
+  { to: "/health", label: "Insights", icon: BarChart3, badge: "02" },
+  { to: "/journal", label: "Sessions", icon: BookOpen, badge: "03" },
+  { to: "/exercise-library", label: "Tools", icon: Wrench, badge: "04" },
+  { to: "/profile", label: "Profile", icon: User, badge: "05" },
 ];
 
-const utilityNavLinks = [
-  { to: "/premium", label: "Premium" },
-  { to: "/feedback", label: "Feedback" },
-  { to: "/advice-types", label: "Future Advice Types" },
-  { to: "/privacy-policy", label: "Privacy Policy" },
-  { to: "/terms", label: "Terms" },
+const utilityNavLinks: NavLinkItem[] = [
+  { to: "/new-analysis", label: "New Analysis", icon: Sparkles },
+  { to: "/archive", label: "Session Archive", icon: Archive },
+  { to: "/relationship-manager", label: "Relationship Manager", icon: Users },
+  { to: "/analysis-management", label: "Analysis Management", icon: FileText },
+  { to: "/premium", label: "Premium", icon: Crown },
+  { to: "/feedback", label: "Feedback", icon: MessageSquare },
+  { to: "/privacy-settings", label: "Privacy Settings", icon: Shield },
+  { to: "/advice-types", label: "Future Advice Types", icon: Settings },
+  { to: "/privacy-policy", label: "Privacy Policy", icon: FileText },
+  { to: "/terms", label: "Terms", icon: FileText },
 ];
 
-const allNavLinks = [...primaryNavLinks, ...utilityNavLinks];
+const labelByPrefix: Array<{ prefix: string; label: string }> = [
+  { prefix: "/report/", label: "Report View" },
+  { prefix: "/analyzing/", label: "Analyzing" },
+  { prefix: "/quiz/", label: "Quiz Hub" },
+  { prefix: "/dashboard", label: "Dashboard" },
+  { prefix: "/onboarding", label: "Onboarding" },
+  { prefix: "/new-analysis", label: "Relationship Analysis" },
+  { prefix: "/archive", label: "Session Archive" },
+  { prefix: "/health", label: "Health Dashboard" },
+  { prefix: "/mood-map", label: "Mood Map" },
+  { prefix: "/monthly-report", label: "Monthly Report" },
+  { prefix: "/sentiment-trends", label: "Sentiment Trends" },
+  { prefix: "/health-report", label: "Relationship Health Report" },
+  { prefix: "/journal", label: "Journal" },
+  { prefix: "/partner", label: "Partner Connect" },
+  { prefix: "/cool-down", label: "Cool Down" },
+  { prefix: "/daily-check-in", label: "Daily Check-In" },
+  { prefix: "/sync-space", label: "Sync Space" },
+  { prefix: "/vision-board", label: "Vision Board" },
+  { prefix: "/exercise-library", label: "Exercise Library" },
+  { prefix: "/challenges", label: "Challenges" },
+  { prefix: "/weekly-challenge", label: "Weekly Challenge" },
+  { prefix: "/goals", label: "Relationship Goals" },
+  { prefix: "/wisdom", label: "Wisdom Library" },
+  { prefix: "/coach", label: "Coach" },
+  { prefix: "/profile", label: "Profile" },
+  { prefix: "/relationship-manager", label: "Relationship Manager" },
+  { prefix: "/feedback", label: "Feedback" },
+  { prefix: "/premium", label: "Premium" },
+  { prefix: "/analysis-management", label: "Analysis Management" },
+  { prefix: "/privacy-settings", label: "Privacy Settings" },
+];
 
 function SessionCountdown({ expiresAt }: { expiresAt: string }): ReactNode {
   const [remainingMs, setRemainingMs] = useState(() =>
@@ -50,16 +109,22 @@ function SessionCountdown({ expiresAt }: { expiresAt: string }): ReactNode {
 
 export function AppShell({ children }: ShellProps): ReactNode {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(() => window.innerWidth < 980);
   const { data, dispatch } = useAppState();
   const location = useLocation();
 
   const activeLabel = useMemo(() => {
-    if (location.pathname.startsWith("/report/")) {
-      return "Session Report";
-    }
-    const match = allNavLinks.find((link) => link.to === location.pathname);
+    const match = labelByPrefix.find((item) => location.pathname.startsWith(item.prefix));
     return match?.label ?? "Aura";
   }, [location.pathname]);
+
+  useEffect(() => {
+    const onResize = () => setIsMobile(window.innerWidth < 980);
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+
+  const mobileTabs = primaryNavLinks;
 
   return (
     <div className="aura-shell">
@@ -73,9 +138,10 @@ export function AppShell({ children }: ShellProps): ReactNode {
             <Link
               key={link.to}
               to={link.to}
-              className={location.pathname === link.to ? "active" : ""}
+              className={location.pathname.startsWith(link.to) ? "active" : ""}
               onClick={() => setMenuOpen(false)}
             >
+              <link.icon className="nav-icon" />
               <span className="nav-badge">{link.badge}</span>
               <span>{link.label}</span>
             </Link>
@@ -87,9 +153,10 @@ export function AppShell({ children }: ShellProps): ReactNode {
             <Link
               key={link.to}
               to={link.to}
-              className={location.pathname === link.to ? "active" : ""}
+              className={location.pathname.startsWith(link.to) ? "active" : ""}
               onClick={() => setMenuOpen(false)}
             >
+              <link.icon className="nav-icon" />
               {link.label}
             </Link>
           ))}
@@ -135,6 +202,21 @@ export function AppShell({ children }: ShellProps): ReactNode {
         </header>
 
         <main className="app-content">{children}</main>
+
+        {isMobile ? (
+          <nav className="mobile-tabbar" aria-label="Main tabs">
+            {mobileTabs.map((item) => (
+              <Link
+                key={item.to}
+                to={item.to}
+                className={location.pathname.startsWith(item.to) ? "active" : ""}
+              >
+                <item.icon className="mobile-tab-icon" />
+                <span>{item.label}</span>
+              </Link>
+            ))}
+          </nav>
+        ) : null}
       </section>
     </div>
   );
